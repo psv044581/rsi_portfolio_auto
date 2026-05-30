@@ -1,0 +1,3385 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSI Portfolio</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0d0f14;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      font-size: 14px;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .updated {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 24px;
+    }
+    .group-block {
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+    }
+    .group-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .group-desc {
+      color: #888;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th {
+      text-align: left;
+      color: #888;
+      font-weight: 500;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 6px 10px;
+      border-bottom: 1px solid #1e2230;
+    }
+    th.rsi-w-head { color: #6699cc; }
+    td {
+      padding: 6px 10px;
+      border-bottom: 1px solid #1a1d27;
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr.coin-sep td { border-top: 2px solid #4a5070 !important; }
+    tbody tr:first-child td { border-top: none !important; }
+    td.coin {
+      font-weight: 700;
+      color: #fff;
+      font-size: 15px;
+      width: 75px;
+      vertical-align: middle;
+    }
+    td.xval {
+      font-weight: 600;
+      width: 65px;
+      vertical-align: middle;
+    }
+    td.denom {
+      color: #aaa;
+      width: 100px;
+    }
+    td.rsi {
+      font-weight: 600;
+      width: 85px;
+    }
+    td.rsi-w {
+      font-weight: 600;
+      width: 85px;
+      color: #6699cc;
+    }
+    td.overbought { color: #ff4444 !important; }
+    td.oversold   { color: #33bb55 !important; }
+    .arr-up { color: #aaa; font-size: 10px; }
+    .arr-dn { color: #aaa; font-size: 10px; }
+    td.note {
+      color: #888;
+      font-size: 12px;
+      vertical-align: middle;
+    }
+    .legend {
+      display: flex;
+      gap: 20px;
+      font-size: 11px;
+      color: #666;
+      margin-top: 16px;
+      flex-wrap: wrap;
+    }
+    .legend span { display: flex; align-items: center; gap: 5px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; }
+  </style>
+</head>
+<body>
+  <h1>RSI Portfolio Monitor</h1>
+  <div class="updated">🕐 Сгенерировано: 30.05.2026 17:34:24 (МНЕ)</div>
+  
+    <div class="group-block" style="border-left:4px solid #ff4444;background:rgba(255,68,68,0.08)">
+      <div class="group-title" style="color:#ff4444">🔴 Группа 1 — Критический риск: ПРОДАТЬ</div>
+      <div class="group-desc">просадка 87–99% / проекты мертвы или делистятся</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>Иксов</th>
+            <th>→ Знаменатель</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ELIZAOS</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x93.61</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">37.0</td>
+          <td class="note" rowspan="5">под иском о мошенничестве</td>
+        </tr>
+        <tr>
+          <td class="denom">HFT</td>
+          <td class="rsi">59.4</td>
+          <td class="rsi rsi-w oversold">28.6</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">59.0</td>
+          <td class="rsi rsi-w oversold">25.8</td>
+        </tr>
+        <tr>
+          <td class="denom">ARB</td>
+          <td class="rsi">58.8</td>
+          <td class="rsi rsi-w oversold">28.1</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">58.7</td>
+          <td class="rsi rsi-w oversold">23.1</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">FLOW</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x19.89</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">55.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.6 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5">делистинг в Корее</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">52.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">34.1</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">49.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w oversold">27.9</td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">49.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ARB</td>
+          <td class="rsi">47.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">34.4</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">OBT</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x13.27</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">51.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">48.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">31.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">47.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">36.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">46.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w oversold">23.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ZK</td>
+          <td class="rsi">45.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">GOAT</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x7.95</td>
+          <td class="denom">HFT</td>
+          <td class="rsi">54.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">55.8 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">51.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">XCH</td>
+          <td class="rsi">49.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">49.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">33.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ARB</td>
+          <td class="rsi">47.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ff8800;background:rgba(255,136,0,0.08)">
+      <div class="group-title" style="color:#ff8800">🟠 Группа 2 — Очень высокий риск: минимизировать</div>
+      <div class="group-desc">держать без усреднения</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>Иксов</th>
+            <th>→ Знаменатель</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">IO</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x11.12</td>
+          <td class="denom">JUP</td>
+          <td class="rsi overbought">75.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">58.5 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">75.1 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">65.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi overbought">75.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">66.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi overbought">74.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">58.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi overbought">72.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">49.9 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">HFT</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x10.88</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">46.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">41.0 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5">мониторинг-тег Binance 22 мая 2026</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">44.8</td>
+          <td class="rsi rsi-w">36.3</td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">43.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">41.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">42.6</td>
+          <td class="rsi rsi-w">39.5</td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">41.6</td>
+          <td class="rsi rsi-w">37.1</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">APT</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x9.8</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">68.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.6 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">64.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">47.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">61.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">61.1 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">55.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">XCH</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x8.33</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">49.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.6 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5">выходить</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">48.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">40.9</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">48.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.4</td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">47.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.1 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">46.6 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">36.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ZK</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x7.78</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">43.2 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.3</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">49.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.1</td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">49.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">46.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ARB</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x7.01</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.3 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">47.7 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">49.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">48.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">49.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">47.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">PYTH</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x6.92</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">55.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.8 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">54.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">53.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">49.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">52.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">50.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ccaa00;background:rgba(204,170,0,0.08)">
+      <div class="group-title" style="color:#ccaa00">🟡 Группа 3 — Высокий риск: держать/ждать</div>
+      <div class="group-desc">высокий риск — реальные проекты</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>Иксов</th>
+            <th>→ Знаменатель</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">IMX</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x6.2</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">63.8</td>
+          <td class="rsi rsi-w">53.5</td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">63.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.5 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">62.4</td>
+          <td class="rsi rsi-w">47.2</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">51.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">54.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.0</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ROSE</td>
+          <td rowspan="5" class="xval" style="color:#ff8800">x5.51</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.5</td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">52.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">50.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">47.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">46.0</td>
+          <td class="rsi rsi-w">41.6</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">GRT</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x4.75</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">69.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">54.9 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">67.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">55.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">65.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">64.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">58.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">WLD</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x4.14</td>
+          <td class="denom">ROSE</td>
+          <td class="rsi">67.8 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.4 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5">24 июля 2026: разлок -43% (5.1M→2.9M WLD/день)</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">67.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.1 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">66.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.9 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">66.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">48.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">65.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">50.7 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">TIA</td>
+          <td rowspan="5" class="xval" style="color:#ff4444">x11.39</td>
+          <td class="denom">ROSE</td>
+          <td class="rsi">62.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.5 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5">реальный проект без монетизации</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">57.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">60.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">58.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">49.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">JUP</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x4.15</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">54.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.0 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">53.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">52.4</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">52.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.7 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">51.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">48.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">FIL</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x3.68</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">61.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.3 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">61.3</td>
+          <td class="rsi rsi-w">57.5</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.2</td>
+          <td class="rsi rsi-w">54.3</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">59.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">51.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">56.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">APE</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x3.34</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">59.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">52.9 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5">выходить — NFT-нарратив слабый</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">59.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">59.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ROSE</td>
+          <td class="rsi">57.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">52.9</td>
+        </tr>
+        <tr>
+          <td class="denom">JUP</td>
+          <td class="rsi">55.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #ccaa00;background:rgba(204,170,0,0.06)">
+      <div class="group-title" style="color:#ccaa00">🟡 Группа 4 — Умеренно-высокий риск: докупать избранные</div>
+      <div class="group-desc">избранные на докупку</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>Иксов</th>
+            <th>→ Знаменатель</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ICP</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x3.25</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">62.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">57.6 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">60.7</td>
+          <td class="rsi rsi-w">55.9</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">60.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi">55.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.6</td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">55.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">48.1</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">ONDO</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x3.16</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">53.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.8</td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">51.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">51.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi">48.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.2</td>
+        </tr>
+        <tr>
+          <td class="denom">ICP</td>
+          <td class="rsi">43.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.5</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">COMP</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x3.05</td>
+          <td class="denom">CFX</td>
+          <td class="rsi">48.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.3 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">46.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">43.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">43.3</td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi">42.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.6</td>
+        </tr>
+        <tr>
+          <td class="denom">ICP</td>
+          <td class="rsi">39.5</td>
+          <td class="rsi rsi-w">44.2</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">INJ</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x2.59</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">87.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">82.0 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5">дефляция + реальный объём</td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi overbought">85.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">75.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi overbought">85.0</td>
+          <td class="rsi rsi-w overbought">77.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi overbought">79.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">61.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi overbought">76.8</td>
+          <td class="rsi rsi-w">67.4</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">TON</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x2.43</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">56.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">60.5</td>
+          <td class="note" rowspan="5">900M Telegram-пользователей</td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">54.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">60.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">53.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">50.6 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ICP</td>
+          <td class="rsi">44.3 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.4</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">CFX</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x2.41</td>
+          <td class="denom">COMP</td>
+          <td class="rsi">51.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">52.6 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="5"></td>
+        </tr>
+        <tr>
+          <td class="denom">LDO</td>
+          <td class="rsi">48.4</td>
+          <td class="rsi rsi-w">53.0</td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">45.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi">44.8 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">42.3</td>
+        </tr>
+        <tr>
+          <td class="denom">ICP</td>
+          <td class="rsi">40.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="5">RENDER</td>
+          <td rowspan="5" class="xval" style="color:#ccaa00">x2.27</td>
+          <td class="denom">LDO</td>
+          <td class="rsi">67.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">64.4 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="5">AI-GPU / +60K GPU в сети</td>
+        </tr>
+        <tr>
+          <td class="denom">COMP</td>
+          <td class="rsi">67.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">62.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">CFX</td>
+          <td class="rsi">63.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">62.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">TON</td>
+          <td class="rsi">59.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="denom">ONDO</td>
+          <td class="rsi">59.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="group-block" style="border-left:4px solid #33bb55;background:rgba(51,187,85,0.08)">
+      <div class="group-title" style="color:#33bb55">🟢 Группа 5 — Умеренный риск: приоритет</div>
+      <div class="group-desc">ближайшие к безубытку / сильные фундаменталы</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Монета</th>
+            <th>Иксов</th>
+            <th>→ Знаменатель</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+            <th>Примечание</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="1">LDO</td>
+          <td rowspan="1" class="xval" style="color:#33bb55">x1.61</td>
+          <td class="denom">NEAR</td>
+          <td class="rsi oversold">23.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">31.1 <span class="arr-up">▲</span></td>
+          <td class="note" rowspan="1">рассмотреть докупку при просадке</td>
+        </tr>
+        <tr class="coin-sep">
+          <td class="coin" rowspan="1">NEAR</td>
+          <td rowspan="1" class="xval" style="color:#33bb55">x1.4</td>
+          <td class="denom">LDO</td>
+          <td class="rsi overbought">76.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">77.8 <span class="arr-dn">▼</span></td>
+          <td class="note" rowspan="1">рассмотреть докупку при просадке</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  
+    <div class="group-block" style="border-left:4px solid #555;background:rgba(255,255,255,0.03);margin-top:32px">
+      <div class="group-title" style="color:#aaa">📊 Все варианты перелива — по убыванию RSI 1D</div>
+      <div class="group-desc">Высокий RSI пары A/B = A перекуплен относительно B → сигнал переложить из A в B</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Из</th>
+            <th>В</th>
+            <th>RSI 1D</th>
+            <th class="rsi-w-head">RSI 1W</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi overbought">87.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">82.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi overbought">85.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">75.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi overbought">85.0</td>
+          <td class="rsi rsi-w overbought">77.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi overbought">79.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">61.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi overbought">76.8</td>
+          <td class="rsi rsi-w">67.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">NEAR</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi overbought">76.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w overbought">77.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi overbought">75.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">58.5 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi overbought">75.1 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">65.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi overbought">75.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">66.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi overbought">74.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">58.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi overbought">74.0</td>
+          <td class="rsi rsi-w">68.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi overbought">72.8</td>
+          <td class="rsi rsi-w">65.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi overbought">72.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">49.9 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi overbought">71.9</td>
+          <td class="rsi rsi-w">63.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">69.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">54.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">68.4</td>
+          <td class="rsi rsi-w">66.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">68.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">67.9</td>
+          <td class="rsi rsi-w">62.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">67.8 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">67.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">55.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">67.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">64.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">67.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.1 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">67.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">62.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">67.3</td>
+          <td class="rsi rsi-w">64.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">66.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.9 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">66.5</td>
+          <td class="rsi rsi-w">55.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">66.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">48.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">65.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">65.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">50.7 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">65.4</td>
+          <td class="rsi rsi-w">60.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">64.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">47.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">64.2</td>
+          <td class="rsi rsi-w">68.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">64.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">64.0</td>
+          <td class="rsi rsi-w">50.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">63.9</td>
+          <td class="rsi rsi-w">42.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">63.8</td>
+          <td class="rsi rsi-w">53.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">63.7</td>
+          <td class="rsi rsi-w">48.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">63.5</td>
+          <td class="rsi rsi-w">45.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">63.3</td>
+          <td class="rsi rsi-w">53.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">63.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">62.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">63.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.5 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">62.7</td>
+          <td class="rsi rsi-w">53.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">62.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">57.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">62.4</td>
+          <td class="rsi rsi-w">47.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">62.3</td>
+          <td class="rsi rsi-w">56.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">62.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">62.0</td>
+          <td class="rsi rsi-w">40.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">61.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">57.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">61.4</td>
+          <td class="rsi rsi-w">48.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">61.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">61.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">61.3</td>
+          <td class="rsi rsi-w">57.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">61.1 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">60.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">51.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">60.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">60.7</td>
+          <td class="rsi rsi-w">55.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">60.6</td>
+          <td class="rsi rsi-w">47.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">60.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">37.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">60.2</td>
+          <td class="rsi rsi-w">54.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">60.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">60.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">59.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">51.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">59.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">52.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">59.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">59.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">59.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">59.4</td>
+          <td class="rsi rsi-w">49.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ HFT</td>
+          <td class="rsi">59.4</td>
+          <td class="rsi rsi-w oversold">28.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">59.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">59.0</td>
+          <td class="rsi rsi-w oversold">25.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">58.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ ARB</td>
+          <td class="rsi">58.8</td>
+          <td class="rsi rsi-w oversold">28.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">58.7</td>
+          <td class="rsi rsi-w oversold">23.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">INJ</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">58.5</td>
+          <td class="rsi rsi-w">50.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ ZK</td>
+          <td class="rsi">58.3</td>
+          <td class="rsi rsi-w">30.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">58.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">49.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">58.2</td>
+          <td class="rsi rsi-w">34.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">57.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">52.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">57.7</td>
+          <td class="rsi rsi-w">51.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ XCH</td>
+          <td class="rsi">56.9</td>
+          <td class="rsi rsi-w">38.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">56.8</td>
+          <td class="rsi rsi-w">39.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">56.7</td>
+          <td class="rsi rsi-w">32.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">56.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">56.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">60.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">56.2</td>
+          <td class="rsi rsi-w">41.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">55.9</td>
+          <td class="rsi rsi-w">33.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">55.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">55.8</td>
+          <td class="rsi rsi-w">46.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">55.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ HFT</td>
+          <td class="rsi">55.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">55.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">55.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ PYTH</td>
+          <td class="rsi">55.0</td>
+          <td class="rsi rsi-w">30.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">55.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">48.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">54.9</td>
+          <td class="rsi rsi-w">35.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">54.9</td>
+          <td class="rsi rsi-w">43.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">54.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">54.6</td>
+          <td class="rsi rsi-w">45.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ HFT</td>
+          <td class="rsi">54.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">55.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">54.2</td>
+          <td class="rsi rsi-w">55.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ APT</td>
+          <td class="rsi">54.1</td>
+          <td class="rsi rsi-w">37.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">54.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">54.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">54.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">60.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">53.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">53.8</td>
+          <td class="rsi rsi-w">56.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">53.7</td>
+          <td class="rsi rsi-w oversold">29.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">53.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">49.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">53.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">56.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">53.5</td>
+          <td class="rsi rsi-w">45.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">53.3 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">47.7 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">53.2</td>
+          <td class="rsi rsi-w">34.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">53.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">43.2 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">53.0</td>
+          <td class="rsi rsi-w">41.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">53.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">53.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">52.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">52.8</td>
+          <td class="rsi rsi-w">45.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">52.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">52.4</td>
+          <td class="rsi rsi-w">38.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">52.2</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">52.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.7 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">52.1</td>
+          <td class="rsi rsi-w">53.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">52.0</td>
+          <td class="rsi rsi-w">42.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">52.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">44.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">52.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">34.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">51.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">53.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">51.9</td>
+          <td class="rsi rsi-w">51.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">51.6</td>
+          <td class="rsi rsi-w">51.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">51.6</td>
+          <td class="rsi rsi-w">41.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">51.6</td>
+          <td class="rsi rsi-w">41.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">51.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">58.4 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">51.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">56.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">51.5</td>
+          <td class="rsi rsi-w">43.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">51.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">52.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">51.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">51.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">51.3</td>
+          <td class="rsi rsi-w">47.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">51.3</td>
+          <td class="rsi rsi-w">36.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">51.2</td>
+          <td class="rsi rsi-w">41.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">51.2</td>
+          <td class="rsi rsi-w">35.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">51.1 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">51.1</td>
+          <td class="rsi rsi-w">42.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ HFT</td>
+          <td class="rsi">51.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">50.8</td>
+          <td class="rsi rsi-w">35.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">50.6 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">53.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">50.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">50.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">50.1</td>
+          <td class="rsi rsi-w">51.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">50.1</td>
+          <td class="rsi rsi-w">48.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">49.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">49.8</td>
+          <td class="rsi rsi-w">43.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">49.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">48.5 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">49.7 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">49.5 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w oversold">27.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ XCH</td>
+          <td class="rsi">49.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">47.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ XCH</td>
+          <td class="rsi">49.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">49.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">49.2</td>
+          <td class="rsi rsi-w">46.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">49.0 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">33.6 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">48.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">49.3 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">48.5</td>
+          <td class="rsi rsi-w">47.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">48.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.4 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">48.5</td>
+          <td class="rsi rsi-w">48.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">48.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">40.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">48.4</td>
+          <td class="rsi rsi-w">53.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">48.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">46.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">48.3</td>
+          <td class="rsi rsi-w">45.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">48.3</td>
+          <td class="rsi rsi-w">33.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">48.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">45.3 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">48.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">31.0 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">48.0</td>
+          <td class="rsi rsi-w">60.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">48.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">47.9</td>
+          <td class="rsi rsi-w">55.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ ARB</td>
+          <td class="rsi">47.8 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">34.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">47.7</td>
+          <td class="rsi rsi-w">41.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ ZK</td>
+          <td class="rsi">47.7</td>
+          <td class="rsi rsi-w">39.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">47.7</td>
+          <td class="rsi rsi-w">43.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ ARB</td>
+          <td class="rsi">47.7 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">41.8 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">47.5 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.1 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">47.5</td>
+          <td class="rsi rsi-w">45.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">47.5</td>
+          <td class="rsi rsi-w">37.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">47.4</td>
+          <td class="rsi rsi-w">32.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">47.4</td>
+          <td class="rsi rsi-w">45.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">47.4</td>
+          <td class="rsi rsi-w">30.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ XCH</td>
+          <td class="rsi">47.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">36.7 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">47.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">43.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ ZK</td>
+          <td class="rsi">47.2</td>
+          <td class="rsi rsi-w">48.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">47.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">47.1</td>
+          <td class="rsi rsi-w">50.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">47.1</td>
+          <td class="rsi rsi-w">45.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">47.0</td>
+          <td class="rsi rsi-w">40.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">46.9</td>
+          <td class="rsi rsi-w">38.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">46.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w oversold">23.9 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">46.8</td>
+          <td class="rsi rsi-w">36.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">46.6 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">46.6 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">36.6 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">46.5</td>
+          <td class="rsi rsi-w">42.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">46.5</td>
+          <td class="rsi rsi-w">43.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ COMP</td>
+          <td class="rsi">46.4 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">41.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">46.4</td>
+          <td class="rsi rsi-w">44.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">46.2</td>
+          <td class="rsi rsi-w">37.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">46.2 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.1 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">46.1</td>
+          <td class="rsi rsi-w">39.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">46.0</td>
+          <td class="rsi rsi-w">35.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">46.0</td>
+          <td class="rsi rsi-w">41.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">46.0</td>
+          <td class="rsi rsi-w">37.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">45.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">44.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">45.8</td>
+          <td class="rsi rsi-w">40.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">45.7</td>
+          <td class="rsi rsi-w">31.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">45.4</td>
+          <td class="rsi rsi-w">53.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ ZK</td>
+          <td class="rsi">45.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">38.2 <span class="arr-dn">▼</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">45.2</td>
+          <td class="rsi rsi-w">32.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">45.2</td>
+          <td class="rsi rsi-w">44.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">45.2</td>
+          <td class="rsi rsi-w">43.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">45.2</td>
+          <td class="rsi rsi-w">53.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">45.1</td>
+          <td class="rsi rsi-w">34.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">45.1</td>
+          <td class="rsi rsi-w">31.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ PYTH</td>
+          <td class="rsi">45.1</td>
+          <td class="rsi rsi-w">32.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">45.1</td>
+          <td class="rsi rsi-w">44.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">45.0</td>
+          <td class="rsi rsi-w">32.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">45.0</td>
+          <td class="rsi rsi-w">33.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">44.9</td>
+          <td class="rsi rsi-w">39.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">44.8</td>
+          <td class="rsi rsi-w">37.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">44.8 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">42.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">44.8</td>
+          <td class="rsi rsi-w">38.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ CFX</td>
+          <td class="rsi">44.8</td>
+          <td class="rsi rsi-w">36.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">44.8</td>
+          <td class="rsi rsi-w">39.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ PYTH</td>
+          <td class="rsi">44.7</td>
+          <td class="rsi rsi-w">41.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ ARB</td>
+          <td class="rsi">44.6</td>
+          <td class="rsi rsi-w">31.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">44.5</td>
+          <td class="rsi rsi-w">42.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">44.5</td>
+          <td class="rsi rsi-w">35.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">44.3 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">55.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">44.2</td>
+          <td class="rsi rsi-w oversold">24.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">44.2</td>
+          <td class="rsi rsi-w">39.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">44.2</td>
+          <td class="rsi rsi-w">39.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">44.1</td>
+          <td class="rsi rsi-w">46.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">44.0</td>
+          <td class="rsi rsi-w">33.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">43.9 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">43.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">43.9 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">50.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">43.9</td>
+          <td class="rsi rsi-w">39.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ PYTH</td>
+          <td class="rsi">43.9</td>
+          <td class="rsi rsi-w">31.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">43.8</td>
+          <td class="rsi rsi-w">37.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">43.6</td>
+          <td class="rsi rsi-w">44.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">43.5</td>
+          <td class="rsi rsi-w">51.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">43.4</td>
+          <td class="rsi rsi-w">39.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">43.4</td>
+          <td class="rsi rsi-w">42.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">43.1</td>
+          <td class="rsi rsi-w">30.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ ROSE</td>
+          <td class="rsi">43.0 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">41.8 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">42.9</td>
+          <td class="rsi rsi-w">42.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">42.9</td>
+          <td class="rsi rsi-w oversold">27.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">42.8</td>
+          <td class="rsi rsi-w">47.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">42.7</td>
+          <td class="rsi rsi-w">39.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">42.7</td>
+          <td class="rsi rsi-w">50.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ LDO</td>
+          <td class="rsi">42.6</td>
+          <td class="rsi rsi-w">39.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">42.6</td>
+          <td class="rsi rsi-w">33.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">42.5</td>
+          <td class="rsi rsi-w">39.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">42.3 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">40.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">42.3</td>
+          <td class="rsi rsi-w">47.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">42.0</td>
+          <td class="rsi rsi-w">42.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">41.6</td>
+          <td class="rsi rsi-w">41.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">41.6</td>
+          <td class="rsi rsi-w">40.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ ONDO</td>
+          <td class="rsi">41.6</td>
+          <td class="rsi rsi-w">37.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ JUP</td>
+          <td class="rsi">41.4 <span class="arr-dn">▼</span></td>
+          <td class="rsi rsi-w">34.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">41.4</td>
+          <td class="rsi rsi-w">48.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">41.4</td>
+          <td class="rsi rsi-w oversold">25.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">41.2</td>
+          <td class="rsi rsi-w">53.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ IO</td>
+          <td class="rsi">41.1</td>
+          <td class="rsi rsi-w">46.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">41.0</td>
+          <td class="rsi rsi-w oversold">29.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">40.8</td>
+          <td class="rsi rsi-w">44.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">40.7</td>
+          <td class="rsi rsi-w">34.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">40.7</td>
+          <td class="rsi rsi-w">41.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">40.4</td>
+          <td class="rsi rsi-w">44.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">40.3</td>
+          <td class="rsi rsi-w">37.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">40.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">46.0 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">WLD</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi">40.1</td>
+          <td class="rsi rsi-w">32.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">40.0</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">39.6</td>
+          <td class="rsi rsi-w">35.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">39.6</td>
+          <td class="rsi rsi-w">35.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">39.6</td>
+          <td class="rsi rsi-w">43.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">39.5</td>
+          <td class="rsi rsi-w">44.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">39.5</td>
+          <td class="rsi rsi-w">49.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">39.4</td>
+          <td class="rsi rsi-w">36.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ TON</td>
+          <td class="rsi">39.3</td>
+          <td class="rsi rsi-w">35.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IO</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi">39.2</td>
+          <td class="rsi rsi-w">35.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">39.2</td>
+          <td class="rsi rsi-w">47.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">39.0</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">38.8</td>
+          <td class="rsi rsi-w">39.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">38.6</td>
+          <td class="rsi rsi-w oversold">29.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">38.5</td>
+          <td class="rsi rsi-w oversold">27.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">38.5</td>
+          <td class="rsi rsi-w">38.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">38.5</td>
+          <td class="rsi rsi-w">37.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ APT</td>
+          <td class="rsi">38.4</td>
+          <td class="rsi rsi-w">34.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">38.4</td>
+          <td class="rsi rsi-w">32.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">38.4</td>
+          <td class="rsi rsi-w">43.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">38.4</td>
+          <td class="rsi rsi-w">31.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">38.2</td>
+          <td class="rsi rsi-w oversold">29.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">38.0</td>
+          <td class="rsi rsi-w oversold">25.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">37.9</td>
+          <td class="rsi rsi-w">36.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">37.8</td>
+          <td class="rsi rsi-w">33.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">37.6</td>
+          <td class="rsi rsi-w">41.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ELIZAOS</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi">37.6</td>
+          <td class="rsi rsi-w">36.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">37.4</td>
+          <td class="rsi rsi-w">42.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">37.3</td>
+          <td class="rsi rsi-w">45.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">37.2</td>
+          <td class="rsi rsi-w">40.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ APT</td>
+          <td class="rsi">37.1</td>
+          <td class="rsi rsi-w">44.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">37.1</td>
+          <td class="rsi rsi-w">31.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">37.1</td>
+          <td class="rsi rsi-w">40.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">37.0</td>
+          <td class="rsi rsi-w">35.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">36.9</td>
+          <td class="rsi rsi-w">39.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">36.8</td>
+          <td class="rsi rsi-w">33.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">36.8</td>
+          <td class="rsi rsi-w">37.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">36.7</td>
+          <td class="rsi rsi-w">49.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">36.6</td>
+          <td class="rsi rsi-w oversold">26.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">36.5</td>
+          <td class="rsi rsi-w">44.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">36.5</td>
+          <td class="rsi rsi-w">44.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">36.2</td>
+          <td class="rsi rsi-w">39.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">36.2</td>
+          <td class="rsi rsi-w">39.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ APE</td>
+          <td class="rsi">36.0</td>
+          <td class="rsi rsi-w">36.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ ICP</td>
+          <td class="rsi">36.0</td>
+          <td class="rsi rsi-w">36.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">35.9</td>
+          <td class="rsi rsi-w">40.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">35.9</td>
+          <td class="rsi rsi-w">45.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ TIA</td>
+          <td class="rsi">35.8</td>
+          <td class="rsi rsi-w">33.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">35.7</td>
+          <td class="rsi rsi-w">47.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ APT</td>
+          <td class="rsi">35.5</td>
+          <td class="rsi rsi-w">38.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">35.4</td>
+          <td class="rsi rsi-w">34.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">35.3</td>
+          <td class="rsi rsi-w oversold">28.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">35.2</td>
+          <td class="rsi rsi-w">35.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">35.0</td>
+          <td class="rsi rsi-w">35.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">34.7</td>
+          <td class="rsi rsi-w">38.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">34.6</td>
+          <td class="rsi rsi-w">37.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ IMX</td>
+          <td class="rsi">34.5</td>
+          <td class="rsi rsi-w">37.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ FIL</td>
+          <td class="rsi">34.4</td>
+          <td class="rsi rsi-w">40.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">34.1</td>
+          <td class="rsi rsi-w">42.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">34.0</td>
+          <td class="rsi rsi-w oversold">26.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">33.9</td>
+          <td class="rsi rsi-w oversold">25.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">33.8</td>
+          <td class="rsi rsi-w">43.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">33.7</td>
+          <td class="rsi rsi-w">39.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">33.5</td>
+          <td class="rsi rsi-w">48.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">33.5</td>
+          <td class="rsi rsi-w">39.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">33.2</td>
+          <td class="rsi rsi-w">43.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">33.0</td>
+          <td class="rsi rsi-w">37.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">32.8</td>
+          <td class="rsi rsi-w">37.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">32.7</td>
+          <td class="rsi rsi-w">37.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">32.4</td>
+          <td class="rsi rsi-w">33.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">32.4</td>
+          <td class="rsi rsi-w">35.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">32.3</td>
+          <td class="rsi rsi-w">32.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">32.2</td>
+          <td class="rsi rsi-w oversold">29.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">32.1</td>
+          <td class="rsi rsi-w">42.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">32.1</td>
+          <td class="rsi rsi-w oversold">23.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">32.1</td>
+          <td class="rsi rsi-w">33.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">32.0</td>
+          <td class="rsi rsi-w">35.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ RENDER</td>
+          <td class="rsi">31.9</td>
+          <td class="rsi rsi-w oversold">24.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">31.4</td>
+          <td class="rsi rsi-w">42.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">31.3</td>
+          <td class="rsi rsi-w">35.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">31.3</td>
+          <td class="rsi rsi-w">41.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ IO</td>
+          <td class="rsi">30.5</td>
+          <td class="rsi rsi-w oversold">28.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">XCH</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi">30.4</td>
+          <td class="rsi rsi-w oversold">25.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi">30.3</td>
+          <td class="rsi rsi-w">36.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ GRT</td>
+          <td class="rsi">30.2</td>
+          <td class="rsi rsi-w">43.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi">30.1</td>
+          <td class="rsi rsi-w">40.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ WLD</td>
+          <td class="rsi oversold">29.9</td>
+          <td class="rsi rsi-w">38.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">29.7</td>
+          <td class="rsi rsi-w">34.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ONDO</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">29.7</td>
+          <td class="rsi rsi-w">37.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">29.4</td>
+          <td class="rsi rsi-w oversold">27.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ICP</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">29.1</td>
+          <td class="rsi rsi-w">36.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">29.0</td>
+          <td class="rsi rsi-w oversold">29.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">29.0</td>
+          <td class="rsi rsi-w oversold">24.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ IO</td>
+          <td class="rsi oversold">28.9</td>
+          <td class="rsi rsi-w">32.7</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TON</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">28.7</td>
+          <td class="rsi rsi-w">41.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">28.6</td>
+          <td class="rsi rsi-w">34.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">RENDER</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">28.3</td>
+          <td class="rsi rsi-w">37.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">28.2</td>
+          <td class="rsi rsi-w">33.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">28.1</td>
+          <td class="rsi rsi-w oversold">23.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">27.1</td>
+          <td class="rsi rsi-w">30.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ IO</td>
+          <td class="rsi oversold">27.0</td>
+          <td class="rsi rsi-w">32.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APE</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">26.8</td>
+          <td class="rsi rsi-w">31.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">26.4</td>
+          <td class="rsi rsi-w oversold">25.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FIL</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">25.5</td>
+          <td class="rsi rsi-w oversold">29.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">25.4</td>
+          <td class="rsi rsi-w oversold">26.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">25.0</td>
+          <td class="rsi rsi-w oversold">16.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">24.8</td>
+          <td class="rsi rsi-w">31.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">JUP</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">24.7</td>
+          <td class="rsi rsi-w">36.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">TIA</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">24.5</td>
+          <td class="rsi rsi-w">32.2</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">24.1</td>
+          <td class="rsi rsi-w">31.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">23.7</td>
+          <td class="rsi rsi-w oversold">23.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">23.6</td>
+          <td class="rsi rsi-w oversold">29.4</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">LDO</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">23.2 <span class="arr-up">▲</span></td>
+          <td class="rsi rsi-w">31.1 <span class="arr-up">▲</span></td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">COMP</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">22.0</td>
+          <td class="rsi rsi-w">32.1</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">PYTH</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">21.6</td>
+          <td class="rsi rsi-w oversold">30.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ NEAR</td>
+          <td class="rsi oversold">21.3</td>
+          <td class="rsi rsi-w oversold">25.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">CFX</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">20.8</td>
+          <td class="rsi rsi-w">31.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">OBT</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">20.8</td>
+          <td class="rsi rsi-w oversold">21.5</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">IMX</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">20.4</td>
+          <td class="rsi rsi-w oversold">25.3</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GOAT</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">20.2</td>
+          <td class="rsi rsi-w oversold">23.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">GRT</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">20.0</td>
+          <td class="rsi rsi-w oversold">22.0</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">FLOW</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">19.4</td>
+          <td class="rsi rsi-w oversold">23.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">APT</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">18.5</td>
+          <td class="rsi rsi-w oversold">26.6</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ZK</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">16.8</td>
+          <td class="rsi rsi-w oversold">29.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ROSE</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">16.3</td>
+          <td class="rsi rsi-w">30.8</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">HFT</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">15.9</td>
+          <td class="rsi rsi-w oversold">28.9</td>
+        </tr>
+        <tr>
+          <td class="coin" style="font-size:13px">ARB</td>
+          <td class="denom">→ INJ</td>
+          <td class="rsi oversold">13.6</td>
+          <td class="rsi rsi-w oversold">28.7</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  <div class="legend">
+    <span><span class="dot" style="background:#ff4444"></span> RSI ≥ 70 — перекуплен</span>
+    <span><span class="dot" style="background:#33bb55"></span> RSI ≤ 30 — перепродан</span>
+    <span><span class="dot" style="background:#6699cc"></span> RSI 1W — синим</span>
+    <span>▲▼ — изменение RSI с прошлого обновления</span>
+  </div>
+  <script>
+    setTimeout(function() {
+      var url = location.pathname + '?t=' + Date.now();
+      window.location.replace(url);
+    }, 900000);
+  </script>
+</body>
+</html>
