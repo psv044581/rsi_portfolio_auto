@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: [],
-    2: ["HFT", "XCH", "TIA", "WLD", "APE"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO"],
+    2: ["HFT", "TIA", "WLD", "APE"],
+    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH"],
     4: ["APT", "ZK", "XRP"],
     5: ["ETH", "BTC"],
 }
@@ -37,7 +37,7 @@ COIN_NOTES = {
     "OBT":     "Реал.выручка $50M но capture неясен; CertiK 3.9/10; -97.8% от ATH",
     "HFT":     "мониторинг-тег Binance 22 мая 2026",
     "APT":     "Анлоки до окт 2026 — давление на цену, конкуренция L1, волатильность",
-    "XCH":     "выходить",
+    "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "ARB":     "Живой L2, но массовые разблокировки (92M/мес), отток к конкурентам",
     "PYTH":    "Слабая токеномика, 57.5% разблокировано, разлоки давят цену",
