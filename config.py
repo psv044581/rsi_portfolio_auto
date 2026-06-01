@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["HFT", "FLOW"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD"],
-    4: ["APT", "ZK", "XRP", "BTC", "ROSE", "PYTH"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD", "APT"],
+    4: [, "ZK", "XRP", "BTC", "ROSE", "PYTH"],
     5: ["ETH"],
 }
 
@@ -36,7 +36,7 @@ COIN_NOTES = {
     "FLOW":    "Хак Dec'25 + делистинг KR бирж, TVL $13M, governance-only токен",
     "OBT":     "Мёртвый проект: $22K объём, -99.95% ATH, нет revenue, инфляция",
     "HFT":     "мониторинг-тег Binance 22 мая 2026",
-    "APT":     "Анлоки до окт 2026 — давление на цену, конкуренция L1, волатильность",
+    "APT":     "P/S 82x при $9.3M ARR, конкур SOL/SUI, -95% ATH, кат. Oct26",
     "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "ARB":     "Живой L2, но массовые разблокировки (92M/мес), отток к конкурентам",
