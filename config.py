@@ -3,9 +3,9 @@ import pytz
 TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
-    1: [],
+    1: ["OBT"],
     2: ["HFT", "WLD", "APE", "FLOW"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA"],
+    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA"],
     4: ["APT", "ZK", "XRP", "BTC"],
     5: ["ETH"],
 }
@@ -34,7 +34,7 @@ COIN_NOTES = {
     "DOT": "Нулевой revenue, спад активности, но hard cap+ETF+историческое дно",
     "BTC": "Коррекция -43% от ATH, ETF оттоки, нет краткосрочных катализаторов",
     "FLOW":    "Хак Dec'25 + делистинг KR бирж, TVL $13M, governance-only токен",
-    "OBT":     "Реал.выручка $50M но capture неясен; CertiK 3.9/10; -97.8% от ATH",
+    "OBT":     "Мёртвый проект: $22K объём, -99.95% ATH, нет revenue, инфляция",
     "HFT":     "мониторинг-тег Binance 22 мая 2026",
     "APT":     "Анлоки до окт 2026 — давление на цену, конкуренция L1, волатильность",
     "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
