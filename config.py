@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: [],
-    2: ["HFT", "XCH", "ONDO", "TIA", "WLD", "APE"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP"],
+    2: ["HFT", "XCH", "TIA", "WLD", "APE"],
+    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO"],
     4: ["APT", "ZK", "XRP"],
     5: ["ETH", "BTC"],
 }
@@ -50,7 +50,7 @@ COIN_NOTES = {
     "APE":     "NFT нарратив угас, нет revenue/buyback, -99.5% ATH, governance-only",
     "FIL":     "Долгий вестинг до 2050, высокий FDV $3B, риск дилюции, конкуренция",
     "ICP":     "Конкуренция Ethereum/Solana, низкая адопция dApps",
-    "ONDO":    "Просадка 87%, разблокировки 47% токенов, регуляторные риски",
+    "ONDO":    "Governance-only, разлок $690M (40% MCap), смерть CEO",
     "COMP":    "Реальный проект, но хак Kelp DAO апр 2026, давление инсайдеров",
     "TON":     "900M Telegram-пользователей",
     "CFX":     "Делистинги (Bitvavo), низкая ликвидность, критические баги",
