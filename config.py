@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: [],
-    2: ["HFT", "TIA", "WLD", "APE"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH"],
+    2: ["HFT", "WLD", "APE"],
+    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA"],
     4: ["APT", "ZK", "XRP"],
     5: ["ETH", "BTC"],
 }
@@ -45,7 +45,7 @@ COIN_NOTES = {
     "ROSE":    "Делистинг Корея, TEE-уязвимости, конкуренция, разлоки",
     "GRT":     "Infinite supply, 3% инфляция, новый ATL фев 2026, реальный проект",
     "WLD":     "24 июля 2026: разлок -43% (5.1M→2.9M WLD/день)",
-    "TIA":     "реальный проект без монетизации",
+    "TIA":     "Разлоки позади, но -98% ATH, инсайдер-продажи, мизерный доход",
     "JUP":     "Просадка ~79% от макс, зависимость от Solana, цена не растёт",
     "APE":     "NFT нарратив угас, нет revenue/buyback, -99.5% ATH, governance-only",
     "FIL":     "Долгий вестинг до 2050, высокий FDV $3B, риск дилюции, конкуренция",
