@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: [],
-    2: ["HFT", "WLD", "APE"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA"],
+    2: ["HFT", "WLD", "APE", "FLOW"],
+    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA"],
     4: ["APT", "ZK", "XRP"],
     5: ["ETH", "BTC"],
 }
@@ -33,7 +33,7 @@ COIN_NOTES = {
     "HBAR": "RWA-лидер, ETF, commodity-статус, но P/S>12000x и доход $330K/год",
     "DOT": "Нулевой revenue, спад активности, но hard cap+ETF+историческое дно",
     "BTC": "Топ-актив: ETF-спрос, SBR-нарратив, халвинг 2028, коррекция -43%",
-    "FLOW":    "Разлоки завершены, buyback есть, но нет value capture и NFT нарратив мёртв",
+    "FLOW":    "Хак Dec'25 + делистинг KR бирж, TVL $13M, governance-only токен",
     "OBT":     "Реал.выручка $50M но capture неясен; CertiK 3.9/10; -97.8% от ATH",
     "HFT":     "мониторинг-тег Binance 22 мая 2026",
     "APT":     "Анлоки до окт 2026 — давление на цену, конкуренция L1, волатильность",
