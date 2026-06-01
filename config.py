@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["HFT", "FLOW"],
-    3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD"],
-    4: ["APT", "ZK", "XRP", "BTC"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD"],
+    4: ["APT", "ZK", "XRP", "BTC", "ROSE"],
     5: ["ETH"],
 }
 
@@ -42,7 +42,7 @@ COIN_NOTES = {
     "ARB":     "Живой L2, но массовые разблокировки (92M/мес), отток к конкурентам",
     "PYTH":    "Слабая токеномика, 57.5% разблокировано, разлоки давят цену",
     "IMX":     "ZK-риски, игровой рынок волатилен, L2-конкуренция",
-    "ROSE":    "Делистинг Корея, TEE-уязвимости, конкуренция, разлоки",
+    "ROSE":    "Сильная команда/инвесторы, но нет revenue capture и слабый adoption",
     "GRT":     "Infinite supply, 3% инфляция, новый ATL фев 2026, реальный проект",
     "WLD":     "Инфляция 67%/год, уход топ-менеджеров, нет выручки",
     "TIA":     "Разлоки позади, но -98% ATH, инсайдер-продажи, мизерный доход",
