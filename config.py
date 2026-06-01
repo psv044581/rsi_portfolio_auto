@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["HFT", "FLOW"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD"],
-    4: ["APT", "ZK", "XRP", "BTC", "ROSE"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "ICP", "LDO", "NEAR", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD"],
+    4: ["APT", "ZK", "XRP", "BTC", "ROSE", "PYTH"],
     5: ["ETH"],
 }
 
@@ -40,7 +40,7 @@ COIN_NOTES = {
     "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "ARB":     "Живой L2, но массовые разблокировки (92M/мес), отток к конкурентам",
-    "PYTH":    "Слабая токеномика, 57.5% разблокировано, разлоки давят цену",
+    "PYTH":    "Реальный adoption, buyback, но -97% ATH и 27% MCap разлок май 2027",
     "IMX":     "ZK-риски, игровой рынок волатилен, L2-конкуренция",
     "ROSE":    "Сильная команда/инвесторы, но нет revenue capture и слабый adoption",
     "GRT":     "Infinite supply, 3% инфляция, новый ATL фев 2026, реальный проект",
