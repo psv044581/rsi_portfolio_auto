@@ -6,7 +6,7 @@ GROUPS = {
     1: [],
     2: ["HFT", "XCH", "ONDO", "TIA", "WLD", "APE"],
     3: ["IMX", "ROSE", "GRT", "JUP", "FIL", "W", "ARB", "CFX", "COMP", "FLOW", "ICP", "LDO", "NEAR", "OBT", "PYTH", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP"],
-    4: ["APT", "ZK"],
+    4: ["APT", "ZK", "XRP"],
     5: ["ETH", "BTC"],
 }
 
@@ -27,6 +27,7 @@ GROUP_DESCRIPTIONS = {
 }
 
 COIN_NOTES = {
+    "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
     "OP": "Base ушёл (97% rev), разлок 30.06, buyback тезис под угрозой",
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
     "HBAR": "RWA-лидер, ETF, commodity-статус, но P/S>12000x и доход $330K/год",
