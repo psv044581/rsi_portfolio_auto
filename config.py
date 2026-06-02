@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: [],
     2: [],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT", "FLOW", "XCH", "H"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR"],
+    3: ["IMX", "GRT", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT", "FLOW", "XCH", "H"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR", "JUP"],
     5: ["ETH"],
 }
 
@@ -46,7 +46,7 @@ COIN_NOTES = {
     "GRT":     "Infinite supply, 3% инфляция, новый ATL фев 2026, реальный проект",
     "WLD":     "Инфляция 67%/год, уход топ-менеджеров, нет выручки",
     "TIA":     "Разлоки позади, но -98% ATH, инсайдер-продажи, мизерный доход",
-    "JUP":     "Просадка ~79% от макс, зависимость от Solana, цена не растёт",
+    "JUP":     "Лидер Solana DEX, P/S 3.8x дёшево, но MAU -82%, memecoin риск",
     "FIL":     "Долгий вестинг до 2050, высокий FDV $3B, риск дилюции, конкуренция",
     "ICP":     "Конкуренция Ethereum/Solana, низкая адопция dApps",
     "ONDO":    "Governance-only, разлок $690M (40% MCap), смерть CEO",
