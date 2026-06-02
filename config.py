@@ -58,7 +58,7 @@ COIN_NOTES = {
     "ETH":     "Ethereum — флагманский L1, ETF запущен, институциональный актив",
 }
 
-GATE_COINS = {, "XCH"}
+GATE_COINS = {"XCH"}
 
 PORTFOLIOS = [
     {"name": "по моим мыслям", "url": "https://dropstab.com/p/po-moim-myslam-fjkjsebo6f"},
