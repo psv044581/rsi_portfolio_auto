@@ -4,7 +4,7 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: ["OBT"],
-    2: ["FLOW"],
+    2: ["FLOW", "APE"],
     3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "HBAR", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT", "HFT"],
     4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER"],
     5: ["ETH"],
