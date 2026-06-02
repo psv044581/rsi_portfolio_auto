@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: ["OBT"],
-    2: ["HFT", "FLOW"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "HBAR", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT"],
+    2: [, "FLOW"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "HBAR", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT", "HFT"],
     4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER"],
     5: ["ETH"],
 }
@@ -35,7 +35,7 @@ COIN_NOTES = {
     "BTC": "Коррекция -43% от ATH, ETF оттоки, нет краткосрочных катализаторов",
     "FLOW":    "Хак Dec'25 + делистинг KR бирж, TVL $13M, governance-only токен",
     "OBT":     "Мёртвый проект: $22K объём, -99.95% ATH, нет revenue, инфляция",
-    "HFT":     "мониторинг-тег Binance 22 мая 2026",
+    "HFT":     "Binance мониторинг = делистинг-риск; -99.7% ATH; 895 DAU; реальный DEX",
     "APT":     "P/S 82x при $9.3M ARR, конкур SOL/SUI, -95% ATH, кат. Oct26",
     "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
