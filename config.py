@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["FLOW", "APE"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "HBAR", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT", "HFT"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT", "HFT"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER", "HBAR"],
     5: ["ETH"],
 }
 
@@ -30,7 +30,7 @@ COIN_NOTES = {
     "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
     "OP": "Buyback активен, Superchain растёт, 50% supply ещё не разлочено",
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
-    "HBAR": "RWA-лидер, ETF, commodity-статус, но P/S>12000x и доход $330K/год",
+    "HBAR": "ETF+commodity статус, но нет value capture для holders; централизован",
     "DOT": "Нулевой revenue, спад активности, но hard cap+ETF+историческое дно",
     "BTC": "Коррекция -43% от ATH, ETF оттоки, нет краткосрочных катализаторов",
     "FLOW":    "Хак Dec'25 + делистинг KR бирж, TVL $13M, governance-only токен",
