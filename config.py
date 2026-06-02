@@ -6,7 +6,7 @@ GROUPS = {
     1: ["OBT"],
     2: ["FLOW", "XCH"],
     3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER", "HBAR"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR"],
     5: ["ETH"],
 }
 
@@ -55,7 +55,6 @@ COIN_NOTES = {
     "CFX":     "Делистинги (Bitvavo), низкая ликвидность, критические баги",
     "RENDER":  "AI/DePIN лидер, горячий нарратив, но revenue данные противоречивы",
     "LDO":     "Buyback запущен, P/S 7x, вестинг завершён, теряет долю рынка",
-    "NEAR":    "Вестинг завершён, AI-нарратив, но P/S 67x и SEC-риск",
     "W":       "Wormhole — кросс-чейн мост, конкуренция LayerZero/Axelar",
     "ETH":     "Ethereum — флагманский L1, ETF запущен, институциональный актив",
 }
