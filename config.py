@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: [],
-    2: ["XCH"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT", "FLOW"],
+    2: [],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT", "FLOW", "XCH"],
     4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR"],
     5: ["ETH"],
 }
@@ -36,7 +36,7 @@ COIN_NOTES = {
     "FLOW":    "Exploit+корейские делистинги+TVL$12M+DAA-75%YoY,партнёрства NBA",
     "HFT":     "Binance мониторинг = делистинг-риск; -99.7% ATH; 895 DAU; реальный DEX",
     "APT":     "P/S 82x при $9.3M ARR, конкур SOL/SUI, -95% ATH, кат. Oct26",
-    "XCH":     "99.9% от ATH, 60% prefarm у инсайдеров, нет value capture",
+    "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "ARB":     "Ведущий L2, governance-only токен, fee switch — ключевой катализатор",
     "PYTH":    "Реальный adoption, buyback, но -97% ATH и 27% MCap разлок май 2027",
