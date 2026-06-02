@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["HFT", "FLOW"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD", "APT"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "RENDER", "TON", "DOT", "HBAR", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP"],
     5: ["ETH"],
 }
 
@@ -28,7 +28,7 @@ GROUP_DESCRIPTIONS = {
 
 COIN_NOTES = {
     "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
-    "OP": "Base ушёл (97% rev), разлок 30.06, buyback тезис под угрозой",
+    "OP": "Buyback активен, Superchain растёт, 50% supply ещё не разлочено",
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
     "HBAR": "RWA-лидер, ETF, commodity-статус, но P/S>12000x и доход $330K/год",
     "DOT": "Нулевой revenue, спад активности, но hard cap+ETF+историческое дно",
