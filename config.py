@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: [],
     2: [],
-    3: ["IMX", "GRT", "FIL", "W", "CFX", "COMP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT", "FLOW", "XCH", "H"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP"],
+    3: ["IMX", "GRT", "FIL", "W", "CFX", "COMP", "TON", "DOT", "STRK", "TIA", "WLD", "APT", "HFT", "FLOW", "XCH", "H"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
     5: ["ETH"],
 }
 
@@ -49,7 +49,7 @@ COIN_NOTES = {
     "JUP":     "Лидер Solana DEX, P/S 3.8x дёшево, но MAU -82%, memecoin риск",
     "FIL":     "Долгий вестинг до 2050, высокий FDV $3B, риск дилюции, конкуренция",
     "ICP":     "Инфляция 6.9%, TVL мал, value capture не запущен, но tech топ",
-    "ONDO":    "Governance-only, разлок $690M (40% MCap), смерть CEO",
+    "ONDO":    "Governance-only, разлок Jan-27 ~40% MCap, смерть основателя",
     "COMP":    "Реальный проект, но хак Kelp DAO апр 2026, давление инсайдеров",
     "TON":     "900M Telegram-пользователей",
     "CFX":     "Делистинги (Bitvavo), низкая ликвидность, критические баги",
