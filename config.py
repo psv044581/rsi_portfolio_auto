@@ -4,8 +4,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 
 GROUPS = {
     1: ["OBT"],
-    2: ["FLOW", "APE"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "XCH", "TIA", "WLD", "APT", "HFT"],
+    2: ["FLOW", "APE", "XCH"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "TON", "DOT", "STRK", "ONDO", "TIA", "WLD", "APT", "HFT"],
     4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR", "OP", "RENDER", "HBAR"],
     5: ["ETH"],
 }
@@ -37,7 +37,7 @@ COIN_NOTES = {
     "OBT":     "Мёртвый проект: $22K объём, -99.95% ATH, нет revenue, инфляция",
     "HFT":     "Binance мониторинг = делистинг-риск; -99.7% ATH; 895 DAU; реальный DEX",
     "APT":     "P/S 82x при $9.3M ARR, конкур SOL/SUI, -95% ATH, кат. Oct26",
-    "XCH":     "нет value capture, непрозрачный prefarm, -99.9% ATH, Permuto через 18мес",
+    "XCH":     "99.9% от ATH, 60% prefarm у инсайдеров, нет value capture",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "ARB":     "Ведущий L2, governance-only токен, fee switch — ключевой катализатор",
     "PYTH":    "Реальный adoption, buyback, но -97% ATH и 27% MCap разлок май 2027",
