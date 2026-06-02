@@ -5,8 +5,8 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: ["OBT"],
     2: ["HFT", "FLOW"],
-    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "NEAR", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD", "APT"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO"],
+    3: ["IMX", "GRT", "JUP", "FIL", "W", "CFX", "COMP", "ICP", "RENDER", "TON", "DOT", "HBAR", "STRK", "OP", "ONDO", "XCH", "TIA", "WLD", "APT"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "NEAR"],
     5: ["ETH"],
 }
 
@@ -55,7 +55,7 @@ COIN_NOTES = {
     "CFX":     "Делистинги (Bitvavo), низкая ликвидность, критические баги",
     "RENDER":  "AI-GPU / +60K GPU в сети",
     "LDO":     "Buyback запущен, P/S 7x, вестинг завершён, теряет долю рынка",
-    "NEAR":    "рассмотреть докупку при просадке",
+    "NEAR":    "Вестинг завершён, AI-нарратив, но P/S 67x и SEC-риск",
     "W":       "Wormhole — кросс-чейн мост, конкуренция LayerZero/Axelar",
     "ETH":     "Ethereum — флагманский L1, ETF запущен, институциональный актив",
 }
