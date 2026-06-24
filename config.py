@@ -5,7 +5,7 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: [],
     2: [],
-    3: ["WLD", "XCH"],
+    3: ["XCH"],
     4: ["ZK", "XRP"],
     5: [],
 }
@@ -30,7 +30,6 @@ COIN_NOTES = {
     "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
     "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
-    "WLD":     "Инфляция 67%/год, уход топ-менеджеров, нет выручки",
 }
 
 GATE_COINS = {"XCH"}
