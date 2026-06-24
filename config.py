@@ -6,7 +6,7 @@ GROUPS = {
     1: [],
     2: [],
     3: ["W", "TON", "STRK", "TIA", "WLD", "XCH"],
-    4: ["ZK", "XRP", "ROSE", "PYTH", "LDO", "OP", "RENDER", "ONDO"],
+    4: ["ZK", "XRP", "ROSE", "PYTH", "OP", "RENDER", "ONDO"],
     5: [],
 }
 
@@ -39,7 +39,6 @@ COIN_NOTES = {
     "ONDO":    "Governance-only, разлок Jan-27 ~40% MCap, смерть основателя",
     "TON":     "900M Telegram-пользователей",
     "RENDER":  "AI/DePIN лидер, горячий нарратив, но revenue данные противоречивы",
-    "LDO":     "Buyback запущен, P/S 7x, вестинг завершён, теряет долю рынка",
     "W":       "Wormhole — кросс-чейн мост, конкуренция LayerZero/Axelar",
 }
 
