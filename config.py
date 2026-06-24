@@ -6,7 +6,7 @@ GROUPS = {
     1: [],
     2: [],
     3: ["W", "TON", "STRK", "TIA", "WLD", "XCH"],
-    4: ["ZK", "XRP", "ROSE", "PYTH", "OP", "RENDER"],
+    4: ["ZK", "XRP", "ROSE", "PYTH", "RENDER"],
     5: [],
 }
 
@@ -28,7 +28,6 @@ GROUP_DESCRIPTIONS = {
 
 COIN_NOTES = {
     "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
-    "OP": "Buyback активен, Superchain растёт, 50% supply ещё не разлочено",
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
     "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
