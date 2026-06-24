@@ -5,7 +5,7 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: [],
     2: [],
-    3: ["IMX", "W", "TON", "STRK", "TIA", "WLD", "HFT", "XCH", "H"],
+    3: ["IMX", "W", "TON", "STRK", "TIA", "WLD", "HFT", "XCH"],
     4: ["ZK", "XRP", "ROSE", "PYTH", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
     5: [],
 }
@@ -27,7 +27,6 @@ GROUP_DESCRIPTIONS = {
 }
 
 COIN_NOTES = {
-    "H": "Разлок 29% supply через 23 дня + нет revenue + ATH = продавать",
     "XRP": "Регуляторная ясность + ETF, но нет revenue capture, ежемесячные escrow-разлоки",
     "OP": "Buyback активен, Superchain растёт, 50% supply ещё не разлочено",
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
