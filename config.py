@@ -5,7 +5,7 @@ TIMEZONE = pytz.timezone("Europe/Podgorica")  # UTC+2
 GROUPS = {
     1: [],
     2: [],
-    3: ["IMX", "W", "TON", "STRK", "TIA", "WLD", "XCH"],
+    3: ["W", "TON", "STRK", "TIA", "WLD", "XCH"],
     4: ["ZK", "XRP", "ROSE", "PYTH", "LDO", "OP", "RENDER", "JUP", "ONDO"],
     5: [],
 }
@@ -33,7 +33,6 @@ COIN_NOTES = {
     "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
     "PYTH":    "Реальный adoption, buyback, но -97% ATH и 27% MCap разлок май 2027",
-    "IMX":     "ZK-риски, игровой рынок волатилен, L2-конкуренция",
     "ROSE":    "Сильная команда/инвесторы, но нет revenue capture и слабый adoption",
     "WLD":     "Инфляция 67%/год, уход топ-менеджеров, нет выручки",
     "TIA":     "Разлоки позади, но -98% ATH, инсайдер-продажи, мизерный доход",
