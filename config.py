@@ -6,7 +6,7 @@ GROUPS = {
     1: [],
     2: [],
     3: ["IMX", "GRT", "FIL", "W", "CFX", "COMP", "TON", "DOT", "STRK", "TIA", "WLD", "HFT", "FLOW", "XCH", "H"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
+    4: ["ZK", "XRP", "ROSE", "PYTH", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
     5: ["ETH"],
 }
 
@@ -33,7 +33,6 @@ COIN_NOTES = {
     "STRK": "revenue -99% от пика, governance-only, TVL 18x ниже конкурентов",
     "HBAR": "ETF+commodity статус, но нет value capture для holders; централизован",
     "DOT": "Нулевой revenue, спад активности, но hard cap+ETF+историческое дно",
-    "BTC": "Коррекция -43% от ATH, ETF оттоки, нет краткосрочных катализаторов",
     "FLOW":    "Exploit+корейские делистинги+TVL$12M+DAA-75%YoY,партнёрства NBA",
     "HFT":     "Binance мониторинг = делистинг-риск; -99.7% ATH; 895 DAU; реальный DEX",
     "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
