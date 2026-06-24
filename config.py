@@ -7,7 +7,7 @@ GROUPS = {
     2: [],
     3: ["IMX", "GRT", "FIL", "W", "TON", "STRK", "TIA", "WLD", "HFT", "FLOW", "XCH", "H"],
     4: ["ZK", "XRP", "ROSE", "PYTH", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
-    5: ["ETH"],
+    5: [],
 }
 
 GROUP_LABELS = {
@@ -50,7 +50,6 @@ COIN_NOTES = {
     "RENDER":  "AI/DePIN лидер, горячий нарратив, но revenue данные противоречивы",
     "LDO":     "Buyback запущен, P/S 7x, вестинг завершён, теряет долю рынка",
     "W":       "Wormhole — кросс-чейн мост, конкуренция LayerZero/Axelar",
-    "ETH":     "Ethereum — флагманский L1, ETF запущен, институциональный актив",
 }
 
 GATE_COINS = {"XCH"}
