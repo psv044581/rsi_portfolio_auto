@@ -6,7 +6,7 @@ GROUPS = {
     1: [],
     2: [],
     3: ["IMX", "GRT", "FIL", "W", "CFX", "COMP", "TON", "DOT", "STRK", "TIA", "WLD", "HFT", "FLOW", "XCH", "H"],
-    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "ARB", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
+    4: ["ZK", "XRP", "BTC", "ROSE", "PYTH", "LDO", "OP", "RENDER", "HBAR", "JUP", "ICP", "ONDO"],
     5: ["ETH"],
 }
 
@@ -38,7 +38,6 @@ COIN_NOTES = {
     "HFT":     "Binance мониторинг = делистинг-риск; -99.7% ATH; 895 DAU; реальный DEX",
     "XCH":     "60% pre-farm у инсайдеров, нет value capture, -99.9% ATH",
     "ZK":      "Вестинг-давление до 2028, инфляция 20%+ циркуляции, но живой L2",
-    "ARB":     "Ведущий L2, governance-only токен, fee switch — ключевой катализатор",
     "PYTH":    "Реальный adoption, buyback, но -97% ATH и 27% MCap разлок май 2027",
     "IMX":     "ZK-риски, игровой рынок волатилен, L2-конкуренция",
     "ROSE":    "Сильная команда/инвесторы, но нет revenue capture и слабый adoption",
