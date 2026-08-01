@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Система скоринга монет</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #0d1117;
+    color: #c9d1d9;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 32px 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  h1 { font-size: 22px; color: #e6edf3; margin-bottom: 6px; }
+  h2 { font-size: 15px; color: #e6edf3; margin: 32px 0 12px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
+  h3 { font-size: 13px; color: #8b949e; text-transform: uppercase; letter-spacing: .07em; margin: 24px 0 10px; }
+  .meta { font-size: 12px; color: #6e7681; margin-bottom: 28px; }
+  .meta a { color: #4488ff; text-decoration: none; }
+  p { font-size: 13px; line-height: 1.7; color: #c9d1d9; margin-bottom: 12px; }
+
+  /* Pipeline */
+  .pipeline {
+    display: flex;
+    gap: 0;
+    margin: 16px 0 24px;
+    flex-wrap: wrap;
+  }
+  .step {
+    flex: 1;
+    min-width: 160px;
+    background: #161b22;
+    border: 1px solid #21262d;
+    border-right: none;
+    padding: 14px 16px;
+    position: relative;
+  }
+  .step:last-child { border-right: 1px solid #21262d; border-radius: 0 6px 6px 0; }
+  .step:first-child { border-radius: 6px 0 0 6px; }
+  .step-num { font-size: 10px; color: #6e7681; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; margin-bottom: 6px; }
+  .step-title { font-size: 13px; font-weight: 600; color: #e6edf3; margin-bottom: 4px; }
+  .step-sub { font-size: 11px; color: #8b949e; line-height: 1.5; }
+  .step-ai { display: inline-block; margin-top: 6px; padding: 2px 7px; background: #2d1f4e; color: #a371f7; border-radius: 10px; font-size: 10px; font-weight: 600; }
+  .step-free { display: inline-block; margin-top: 6px; padding: 2px 7px; background: #1a2e1a; color: #3fb950; border-radius: 10px; font-size: 10px; font-weight: 600; }
+  .arrow { display: flex; align-items: center; color: #30363d; font-size: 18px; padding: 0 2px; }
+
+  /* Variants */
+  .variants { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 24px; }
+  .variant { background: #161b22; border: 1px solid #21262d; border-radius: 6px; padding: 16px; }
+  .variant-title { font-size: 13px; font-weight: 700; color: #e6edf3; margin-bottom: 8px; }
+  .variant-sub { font-size: 12px; color: #8b949e; line-height: 1.6; }
+  .tag { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 10px; font-weight: 600; margin-left: 6px; }
+  .tag-main { background: #1c3a5e; color: #58a6ff; }
+  .tag-alt  { background: #2a2a1a; color: #e3b341; }
+  @media (max-width: 600px) { .variants { grid-template-columns: 1fr; } }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 24px; }
+  th { text-align: left; padding: 8px 12px; background: #161b22; color: #8b949e; font-weight: 600; border-bottom: 1px solid #30363d; white-space: nowrap; }
+  td { padding: 9px 12px; border-bottom: 1px solid #21262d; vertical-align: top; line-height: 1.5; }
+  tr:hover td { background: #161b22; }
+  td.src { font-size: 11px; color: #79c0ff; font-family: monospace; }
+  .yes-ai { color: #a371f7; font-weight: 600; }
+  .no-ai  { color: #3fb950; }
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600; }
+  .b-api    { background: #1a3a1a; color: #3fb950; }
+  .b-haiku  { background: #1f2d4e; color: #79c0ff; }
+  .b-sonnet { background: #2d1f4e; color: #a371f7; }
+  .b-ws     { background: #2e2a1a; color: #e3b341; }
+
+  /* Scoring axes */
+  .axes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-bottom: 24px; }
+  .axis { background: #161b22; border: 1px solid #21262d; border-radius: 6px; padding: 12px 14px; }
+  .axis-num { font-size: 10px; color: #6e7681; font-weight: 700; margin-bottom: 4px; }
+  .axis-name { font-size: 13px; font-weight: 600; color: #e6edf3; margin-bottom: 4px; }
+  .axis-desc { font-size: 11px; color: #8b949e; line-height: 1.5; }
+
+  /* Groups */
+  .groups { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+  .group { flex: 1; min-width: 140px; border-radius: 6px; padding: 12px 14px; border: 1px solid; }
+  .g1 { background: #2d0d0d; border-color: #f85149; }
+  .g2 { background: #2d1a0d; border-color: #e3b341; }
+  .g3 { background: #2a2a0d; border-color: #d4a017; }
+  .g4 { background: #1a2a0d; border-color: #3fb950; }
+  .g5 { background: #0d2a0d; border-color: #3fb950; }
+  .g-label { font-size: 11px; font-weight: 700; color: #e6edf3; margin-bottom: 3px; }
+  .g-score { font-size: 10px; color: #8b949e; margin-bottom: 4px; }
+  .g-desc { font-size: 11px; color: #8b949e; }
+
+  .note { background: #161b22; border-left: 3px solid #30363d; border-radius: 0 6px 6px 0; padding: 10px 14px; font-size: 12px; color: #8b949e; margin-bottom: 16px; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<h1>Система скоринга монет портфеля</h1>
+<div class="meta">
+  Обновлено: 01.08.2026 &nbsp;·&nbsp;
+  <a href="https://psv044581.github.io/rsi_portfolio_auto/">RSI Portfolio →</a> &nbsp;|&nbsp;
+  <a href="https://psv044581.github.io/coinalert/">CoinAlert →</a> &nbsp;|&nbsp;
+  <a href="https://psv044581.github.io/coinalert/scripts.html">Все скрипты →</a>
+</div>
+
+<!-- ОБЗОР -->
+<h2>Что это</h2>
+<p>Автоматическая система глубокого анализа криптовалют портфеля. Каждая монета получает скоринг от 0 до 60 по 12 осям и группу риска 1–5. Результат используется для принятия решений: продать / держать / докупать.</p>
+<p>Реализована в двух вариантах: двухэтапный (Haiku → Sonnet) и одноэтапный (Sonnet с WebSearch). В обоих случаях основа — рыночные данные из бесплатных API + веб-поиск через Claude.</p>
+
+<!-- ВАРИАНТЫ -->
+<h2>Варианты исследования</h2>
+<div class="variants">
+  <div class="variant">
+    <div class="variant-title">researcher.py <span class="tag tag-main">основной</span></div>
+    <div class="variant-sub">
+      <b>3 этапа:</b><br>
+      1. API prefetch (CoinGecko + DeFiLlama) — бесплатно<br>
+      2. Claude Haiku + WebSearch — сбор сырых данных (vesting, revenue, команда, новости). Кэш 14 дней.<br>
+      3. Claude Sonnet — чистый анализ по всем данным, без веб-доступа<br><br>
+      <b>Время:</b> ~7 мин&nbsp;&nbsp;<b>Кэш Haiku:</b> 14 дней
+    </div>
+  </div>
+  <div class="variant">
+    <div class="variant-title">researcher_sonnet.py <span class="tag tag-alt">альтернатива</span></div>
+    <div class="variant-sub">
+      <b>2 этапа:</b><br>
+      1. API prefetch (CoinGecko + DeFiLlama) — бесплатно<br>
+      2. Claude Sonnet + WebSearch — сам ищет и анализирует в одном запросе<br><br>
+      <b>Плюс:</b> Sonnet сам решает что искать, нет потери данных между моделями. Лучше для малоизвестных монет.<br>
+      <b>Минус:</b> Дороже и медленнее (~8 мин)
+    </div>
+  </div>
+</div>
+
+<!-- ПАЙПЛАЙН -->
+<h2>Пайплайн (основной вариант)</h2>
+<div class="pipeline">
+  <div class="step">
+    <div class="step-num">Шаг 1</div>
+    <div class="step-title">API Prefetch</div>
+    <div class="step-sub">CoinGecko + DeFiLlama<br>Цена, MCap, FDV, supply, TVL</div>
+    <span class="step-free">Бесплатно</span>
+  </div>
+  <div class="step">
+    <div class="step-num">Шаг 2</div>
+    <div class="step-title">Haiku — сбор данных</div>
+    <div class="step-sub">WebSearch + WebFetch<br>Vesting, revenue, команда, новости</div>
+    <span class="step-ai">Claude Haiku</span>
+  </div>
+  <div class="step">
+    <div class="step-num">Шаг 3</div>
+    <div class="step-title">Sonnet — анализ</div>
+    <div class="step-sub">Полный отчёт по всем данным<br>Скоринг по 12 осям</div>
+    <span class="step-ai">Claude Sonnet</span>
+  </div>
+  <div class="step">
+    <div class="step-num">Шаг 4</div>
+    <div class="step-title">Результат</div>
+    <div class="step-sub">SYMBOL.md + scores.json<br>Группа риска → config.py<br>TG-уведомление</div>
+    <span class="step-free">Авто</span>
+  </div>
+</div>
+
+<!-- ДАННЫЕ -->
+<h2>Используемые данные</h2>
+
+<h3>Автоматически через API (бесплатно, без ИИ)</h3>
+<table>
+  <thead><tr><th>Данные</th><th>Источник</th><th>Как получают</th><th>ИИ</th></tr></thead>
+  <tbody>
+    <tr><td>Цена, Market Cap, FDV</td><td class="src">CoinGecko API</td><td>REST API, бесплатный план</td><td class="no-ai">—</td></tr>
+    <tr><td>Volume 24h, ATH, просадка от ATH</td><td class="src">CoinGecko API</td><td>REST API</td><td class="no-ai">—</td></tr>
+    <tr><td>Circulating / Total / Max Supply, % разблокировано</td><td class="src">CoinGecko API</td><td>REST API</td><td class="no-ai">—</td></tr>
+    <tr><td>Изменение цены 24h / 7d / 30d</td><td class="src">CoinGecko API</td><td>REST API</td><td class="no-ai">—</td></tr>
+    <tr><td>Категории, дата запуска, описание</td><td class="src">CoinGecko API</td><td>REST API</td><td class="no-ai">—</td></tr>
+    <tr><td>TVL протокола (по чейнам)</td><td class="src">DeFiLlama API</td><td>REST API — только для монет с реальным TVL (COMP, GRT, JUP, LDO, W)</td><td class="no-ai">—</td></tr>
+    <tr><td>TVL блокчейна</td><td class="src">DeFiLlama API</td><td>REST API — для L1/L2 (ARB, NEAR, TON, ICP, FLOW, APT, ZK, IMX)</td><td class="no-ai">—</td></tr>
+    <tr><td>FDV / MCap коэффициент навеса</td><td class="src">Расчёт</td><td>Вычисляется из API-данных</td><td class="no-ai">—</td></tr>
+  </tbody>
+</table>
+
+<h3>Через Claude Haiku + WebSearch (кэш 14 дней)</h3>
+<table>
+  <thead><tr><th>Данные</th><th>Источники поиска</th><th>ИИ</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Vesting schedule — полная таблица разлоков: дата, категория, объём, % от supply</td>
+      <td class="src">tokenomist.ai, dropstab.com</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>MCap при запуске (TGE/IDO), FDV при последнем инвест. раунде</td>
+      <td class="src">tokenomist.ai, dropstab.com, cryptorank.io</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>Доход протокола: месячный / годовой run-rate, тренд</td>
+      <td class="src">defillama.com, tokenterminal.com</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>Механизм влияния дохода на токен: buyback, burn, fee switch, governance only</td>
+      <td class="src">defillama.com, tokenterminal.com, docs</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>Команда: основатели, бэкграунд. Раунды финансирования: дата, сумма, FDV, инвесторы</td>
+      <td class="src">cryptorank.io, crunchbase, официальный сайт</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>Новости и события за 6–12 мес: разлоки, партнёрства, хаки, делистинги, катализаторы</td>
+      <td class="src">WebSearch по тикеру</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+    <tr>
+      <td>On-chain сигналы: GitHub commits 30d, exchange inflows тренд, funding rate, active addresses</td>
+      <td class="src">WebSearch, cryptowatch, coinglass</td>
+      <td class="yes-ai">Claude Haiku</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>Вычисляется Claude Sonnet из собранных данных</h3>
+<table>
+  <thead><tr><th>Данные</th><th>Откуда</th><th>ИИ</th></tr></thead>
+  <tbody>
+    <tr><td>P/S мультипликатор (FDV / годовой доход, MCap / доход)</td><td class="src">FDV из CoinGecko + Revenue от Haiku</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>$-стоимость каждого разлока и % от текущего MCap</td><td class="src">Vesting от Haiku + цена из CoinGecko</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>Оценка давления разлоков: 🔴 высокое / 🟡 среднее / 🟢 низкое</td><td class="src">Расчёт: объём разлока / MCap</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>Исторический эффект разлоков на цену</td><td class="src">Новости от Haiku + анализ</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>Сравнение с конкурентами: MCap, FDV/MCap, P/S, TVL</td><td class="src">WebSearch (в режиме Sonnet-only)</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>Скоринг по 12 осям (1–5 каждая) и итог /60</td><td class="src">Все собранные данные</td><td class="yes-ai">Claude Sonnet</td></tr>
+    <tr><td>Группа риска 1–5, рекомендация, уровни докупки/стопа</td><td class="src">Скоринг + анализ</td><td class="yes-ai">Claude Sonnet</td></tr>
+  </tbody>
+</table>
+
+<!-- СКОРИНГ -->
+<h2>12 осей скоринга (1–5 каждая, итого /60)</h2>
+<div class="axes-grid">
+  <div class="axis">
+    <div class="axis-num">1</div>
+    <div class="axis-name">Технология / продукт</div>
+    <div class="axis-desc">Архитектура, инновации, зрелость, аудиты безопасности</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">2</div>
+    <div class="axis-name">Токеномика / разлоки</div>
+    <div class="axis-desc">Vesting schedule, давление разлоков, инфляция, burn</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">3</div>
+    <div class="axis-name">Доход / value capture</div>
+    <div class="axis-desc">Наличие дохода, P/S, механизм влияния на токен</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">4</div>
+    <div class="axis-name">Команда / инвесторы</div>
+    <div class="axis-desc">Бэкграунд основателей, раунды, лид-инвесторы</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">5</div>
+    <div class="axis-name">Экосистема / метрики</div>
+    <div class="axis-desc">TVL, DAU/MAU, объём 30d, active addresses, тренд</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">6</div>
+    <div class="axis-name">Нарратив / тайминг</div>
+    <div class="axis-desc">Горячий ли нарратив, позиция в цикле, ближайший катализатор</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">7</div>
+    <div class="axis-name">Ликвидность</div>
+    <div class="axis-desc">Дневной объём, spread, slippage $10K/$100K, возможность выйти</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">8</div>
+    <div class="axis-name">Регуляторный риск</div>
+    <div class="axis-desc">SEC, делистинги, страновые ограничения</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">9</div>
+    <div class="axis-name">Конкурентная позиция</div>
+    <div class="axis-desc">Растёт / держит / теряет долю рынка vs конкуренты</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">10</div>
+    <div class="axis-name">Централизация</div>
+    <div class="axis-desc">Доля инсайдеров, governance (мультисиг / DAO), key-man риск</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">11</div>
+    <div class="axis-name">Безопасность</div>
+    <div class="axis-desc">Аудиты, история взломов, CertiK-скор, критические баги</div>
+  </div>
+  <div class="axis">
+    <div class="axis-num">12</div>
+    <div class="axis-name">PMF / Реальное применение</div>
+    <div class="axis-desc">Решает ли реальную проблему лучше альтернатив, платящие пользователи</div>
+  </div>
+</div>
+
+<!-- ГРУППЫ -->
+<h2>Группы риска</h2>
+<div class="groups">
+  <div class="group g1"><div class="g-label">🔴 Группа 1</div><div class="g-score">&lt;20 / 60</div><div class="g-desc">Критический риск — проект мёртв или делистится</div></div>
+  <div class="group g2"><div class="g-label">🟠 Группа 2</div><div class="g-score">20–29 / 60</div><div class="g-desc">Очень высокий — держать без усреднения</div></div>
+  <div class="group g3"><div class="g-label">🟡 Группа 3</div><div class="g-score">30–39 / 60</div><div class="g-desc">Высокий — реальный проект с высоким риском</div></div>
+  <div class="group g4"><div class="g-label">🟡 Группа 4</div><div class="g-score">40–49 / 60</div><div class="g-desc">Умеренно-высокий — избранные для докупки</div></div>
+  <div class="group g5"><div class="g-label">🟢 Группа 5</div><div class="g-score">50–60 / 60</div><div class="g-desc">Умеренный — сильные фундаменталы</div></div>
+</div>
+
+<!-- РЕЗУЛЬТАТ -->
+<h2>Что происходит после анализа</h2>
+<table>
+  <thead><tr><th>Результат</th><th>Где сохраняется</th><th>Что делается</th></tr></thead>
+  <tbody>
+    <tr><td>Полный отчёт в Markdown</td><td class="src">research/SYMBOL.md</td><td>Пушится на GitHub Pages</td></tr>
+    <tr><td>Скоринг и группа</td><td class="src">scores.json</td><td>Используется для сортировки в портфеле</td></tr>
+    <tr><td>Сырые данные Haiku</td><td class="src">research_raw/SYMBOL.json</td><td>Кэш 14 дней — не перезапрашивается</td></tr>
+    <tr><td>Группа риска</td><td class="src">config.py → GROUPS</td><td>Автоматически обновляется если группа изменилась</td></tr>
+    <tr><td>TG-уведомление</td><td class="src">Telegram</td><td>Отправляется с группой, скорингом, кратким комментарием</td></tr>
+  </tbody>
+</table>
+
+<div class="note">
+  💡 <b>Кэш:</b> Сырые данные Haiku (vesting, revenue, команда) кэшируются на 14 дней в <code>research_raw/</code>. При повторном запуске Haiku не вызывается — только Sonnet переанализирует. Это экономит ~60% стоимости повторного research.
+</div>
+
+</body>
+</html>
